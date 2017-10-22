@@ -16,15 +16,9 @@ namespace Game6
         int ElapsedTime = 0;
         int MouseElapsedTime = 0;
 
-        bool left;
-
         Random r;
-<<<<<<< HEAD
 
         InputHelper input;
-=======
-        public InputHelper input;
->>>>>>> 84d36701b5774ef1623e3034971cdfeee41139e8
 
         GameState gameState;
 
@@ -48,10 +42,7 @@ namespace Game6
 
             grid = new TetrisGrid();
             input = new InputHelper();
-<<<<<<< HEAD
 
-=======
->>>>>>> 84d36701b5774ef1623e3034971cdfeee41139e8
             grid.reset();
 
             blok1 = new block1();
@@ -63,15 +54,11 @@ namespace Game6
             blok7 = new block7();
         }
 
-        public void HandleInput(InputHelper inputHelper)
+        public void HandleInput(GameTime gameTime, InputHelper inputHelper)
         {
-<<<<<<< HEAD
+ 
             //input.Update(gameTime);
             if (inputHelper.KeyPressed(Keys.A) && rotateL())
-=======
-            input.Update(gameTime);
-            if (inputHelper.currentKeyboardState.IsKeyDown(Keys.A) && inputHelper.previousKeyboardState.IsKeyUp(Keys.A))
->>>>>>> 84d36701b5774ef1623e3034971cdfeee41139e8
             { /* roteer linksom */
 
             }
@@ -114,6 +101,8 @@ namespace Game6
                 rotateL();
                 rotateR();
                 side();
+
+                HandleInput(gameTime, input);
 
                 ElapsedTime += gameTime.ElapsedGameTime.Milliseconds;
                 if (ElapsedTime > Steptime)
