@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
-class InputHelper
+public class InputHelper
 {
     public MouseState currentMouseState, previousMouseState;
     public KeyboardState currentKeyboardState, previousKeyboardState;
@@ -40,5 +40,10 @@ class InputHelper
     public bool IsKeyDown(Keys k)
     {
         return currentKeyboardState.IsKeyDown(k);
+    }
+
+    public bool IsKeyUp(Keys k)
+    {
+        return currentKeyboardState.IsKeyUp(k);
     }
 }
