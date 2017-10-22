@@ -41,4 +41,9 @@ public class InputHelper
     {
         return currentKeyboardState.IsKeyDown(k);
     }
+
+    public bool IsKeyUp(Keys k)
+    {
+        return currentKeyboardState.IsKeyUp(k);
+    }
 }
