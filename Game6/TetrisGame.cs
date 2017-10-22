@@ -15,12 +15,14 @@ namespace Game6
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         GameWorld gameWorld;
+        InputHelper input;
         Texture2D blokje, blokje2;
 
         public TetrisGame()
         {
             graphics = new GraphicsDeviceManager(this);
             gameWorld = new GameWorld();
+            input = new InputHelper();
             Content.RootDirectory = "Content";
 
             graphics.PreferredBackBufferWidth = 700;
@@ -79,6 +81,7 @@ namespace Game6
 
             // TODO: Add your update logic here
             gameWorld.Update(gameTime);
+            input.Update(gameTime);
             base.Update(gameTime);
         }
 

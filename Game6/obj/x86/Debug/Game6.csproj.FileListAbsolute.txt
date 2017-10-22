@@ -79,3 +79,6 @@ D:\Documents\Visual Studio 2015\Projects\Tetris-2\Game6\bin\Windows\x86\Debug\Sh
 D:\Documents\Visual Studio 2015\Projects\Tetris-2\Game6\bin\Windows\x86\Debug\SharpDX.RawInput.xml
 D:\Documents\Visual Studio 2015\Projects\Tetris-2\Game6\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
 D:\Documents\Visual Studio 2015\Projects\Tetris-2\Game6\obj\x86\Debug\Game6.csprojResolveAssemblyReference.cache
+D:\Documents\Visual Studio 2015\Projects\Tetris-2\Game6\bin\Windows\x86\Debug\Content\CLEAR.xnb
+D:\Documents\Visual Studio 2015\Projects\Tetris-2\Game6\bin\Windows\x86\Debug\Content\SOUNDTRACK.wma
+D:\Documents\Visual Studio 2015\Projects\Tetris-2\Game6\bin\Windows\x86\Debug\Content\SOUNDTRACK.xnb

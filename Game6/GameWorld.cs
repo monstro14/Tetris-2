@@ -14,6 +14,9 @@ namespace Game6
         //{ set, fall, rotateR, rotateL, side}
 
         Vector2 Offset = new Vector2(0, 60), position = new Vector2(3, 0), previewpos = new Vector2(13, 1);
+        public int Steptime = 500;
+        int ElapsedTime = 0;
+        int MouseElapsedTime = 0;
 
         Random r;
 
@@ -48,10 +51,28 @@ namespace Game6
             blok5 = new block5();
             blok6 = new block6();
             blok7 = new block7();
+            
         }
 
         public void HandleIpunt(GameTime gameTime, InputHelper inputHelper)
         {
+            if (inputHelper.currentKeyboardState.IsKeyDown(Keys.A) && inputHelper.previousKeyboardState.IsKeyUp(Keys.A))
+            { /* roteer linksom */
+
+            }
+               
+            if (inputHelper.currentKeyboardState.IsKeyDown(Keys.D) && inputHelper.previousKeyboardState.IsKeyUp(Keys.D))
+            {/* roteer rechtsom */ }
+
+            if (inputHelper.currentKeyboardState.IsKeyDown(Keys.Left) && inputHelper.previousKeyboardState.IsKeyUp(Keys.Left))
+            {
+                position.X--;
+            }
+
+            if (inputHelper.currentKeyboardState.IsKeyDown(Keys.Right) && inputHelper.previousKeyboardState.IsKeyUp(Keys.Right))
+            {
+                position.X++;
+            }
         }
 
         public void Update(GameTime gameTime)
@@ -65,6 +86,13 @@ namespace Game6
                     position.X = r.Next(10);
                     currentblock = nextblock;
                     next();
+                }
+
+                ElapsedTime += gameTime.ElapsedGameTime.Milliseconds;
+                if (ElapsedTime > Steptime)
+                {
+                    position.Y++;
+                    ElapsedTime = 0;
                 }
             }
 

@@ -3,8 +3,8 @@ using Microsoft.Xna.Framework.Input;
 
 class InputHelper
 {
-    MouseState currentMouseState, previousMouseState;
-    KeyboardState currentKeyboardState, previousKeyboardState;
+    public MouseState currentMouseState, previousMouseState;
+    public KeyboardState currentKeyboardState, previousKeyboardState;
 
     double timeSinceLastKeyPress;
 
