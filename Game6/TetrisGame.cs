@@ -2,6 +2,8 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Game6
 {
@@ -49,6 +51,9 @@ namespace Game6
 
             blokje = Content.Load<Texture2D>("blokje");
             blokje2 = Content.Load<Texture2D>("achtergrondblokje");
+
+            MediaPlayer.Play(Content.Load<Song>("SOUNDTRACK"));
+            SoundEffect clearRow = Content.Load<SoundEffect>("CLEAR");
 
             // TODO: use this.Content to load your game content here
         }

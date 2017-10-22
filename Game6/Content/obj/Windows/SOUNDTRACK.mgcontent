@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>D:/Documents/Visual Studio 2015/Projects/Tetris-2/Game6/Content/SOUNDTRACK.mp3</SourceFile>
+  <SourceTime>2017-10-21T10:33:14.4330309+02:00</SourceTime>
+  <DestFile>D:/Documents/Visual Studio 2015/Projects/Tetris-2/Game6/Content/bin/Windows/SOUNDTRACK.xnb</DestFile>
+  <DestTime>2017-10-22T14:42:02.0533733+02:00</DestTime>
+  <Importer>Mp3Importer</Importer>
+  <ImporterTime>2016-03-30T08:36:08+02:00</ImporterTime>
+  <Processor>SongProcessor</Processor>
+  <ProcessorTime>2016-03-30T08:36:08+02:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput>
+    <string>D:/Documents/Visual Studio 2015/Projects/Tetris-2/Game6/Content/bin/Windows/SOUNDTRACK.wma</string>
+  </BuildOutput>
+</PipelineBuildEvent>
