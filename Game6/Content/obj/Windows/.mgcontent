@@ -4,9 +4,9 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>D:/Documents/Visual Studio 2015/Projects/Tetris-2/Game6/Content/achtergrondblokje.png</File>
-    <File>D:/Documents/Visual Studio 2015/Projects/Tetris-2/Game6/Content/blokje.png</File>
-    <File>D:/Documents/Visual Studio 2015/Projects/Tetris-2/Game6/Content/CLEAR.mp3</File>
-    <File>D:/Documents/Visual Studio 2015/Projects/Tetris-2/Game6/Content/SOUNDTRACK.mp3</File>
+    <File>D:/uni/Game6/Tetris-2/Game6/Content/achtergrondblokje.png</File>
+    <File>D:/uni/Game6/Tetris-2/Game6/Content/blokje.png</File>
+    <File>D:/uni/Game6/Tetris-2/Game6/Content/CLEAR.mp3</File>
+    <File>D:/uni/Game6/Tetris-2/Game6/Content/SOUNDTRACK.mp3</File>
   </SourceFiles>
 </SourceFileCollection>

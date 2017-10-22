@@ -10,19 +10,19 @@ namespace Game6
     {
         enum GameState
         { Menu, Playing, GameOver}
-        //enum Collision
-        //{ set, fall, rotateR, rotateL, side}
 
         Vector2 Offset = new Vector2(0, 60), position = new Vector2(3, 0), previewpos = new Vector2(13, 1);
         public int Steptime = 500;
         int ElapsedTime = 0;
         int MouseElapsedTime = 0;
 
+        bool left;
+
         Random r;
+
         InputHelper input;
 
         GameState gameState;
-        //Collision collision;
 
         TetrisGrid grid;
 
@@ -43,7 +43,8 @@ namespace Game6
             gameState = GameState.Playing;
 
             grid = new TetrisGrid();
-            //input = new InputHelper();
+            input = new InputHelper();
+
             grid.reset();
 
             blok1 = new block1();
@@ -53,28 +54,34 @@ namespace Game6
             blok5 = new block5();
             blok6 = new block6();
             blok7 = new block7();
-            
         }
 
-        public void HandleInput(GameTime gameTime, InputHelper inputHelper)
+        public void HandleInput(InputHelper inputHelper)
         {
             //input.Update(gameTime);
-            if (inputHelper.currentKeyboardState.IsKeyDown(Keys.A) && inputHelper.previousKeyboardState.IsKeyUp(Keys.A))
+            if (inputHelper.KeyPressed(Keys.A) && rotateL())
             { /* roteer linksom */
 
             }
                
-            if (inputHelper.currentKeyboardState.IsKeyDown(Keys.D) && inputHelper.previousKeyboardState.IsKeyUp(Keys.D))
-            {/* roteer rechtsom */ }
+            if (inputHelper.KeyPressed(Keys.D) && rotateR())
+            {/* roteer rechtsom */
 
-            if (inputHelper.currentKeyboardState.IsKeyDown(Keys.Left) && inputHelper.previousKeyboardState.IsKeyUp(Keys.Left))
+            }
+
+            if (inputHelper.KeyPressed(Keys.Left) && side())
             {
                 position.X--;
             }
 
-            if (inputHelper.currentKeyboardState.IsKeyDown(Keys.Right) && inputHelper.previousKeyboardState.IsKeyUp(Keys.Right))
+            if (inputHelper.KeyPressed(Keys.Right) && side())
             {
                 position.X++;
+            }
+
+            if (inputHelper.KeyPressed(Keys.Down) && fall())
+            {
+                position.Y--;
             }
         }
 
@@ -90,6 +97,11 @@ namespace Game6
                     currentblock = nextblock;
                     next();
                 }
+
+                fall();
+                rotateL();
+                rotateR();
+                side();
 
                 ElapsedTime += gameTime.ElapsedGameTime.Milliseconds;
                 if (ElapsedTime > Steptime)
@@ -123,6 +135,31 @@ namespace Game6
             next();
             currentblock = nextblock;
             next();
+        }
+
+        public bool fall()
+        {
+            return true;
+        }
+
+        public bool rotateR()
+        {
+            return true;
+        }
+
+        public bool rotateL()
+        {
+            return true;
+        }
+
+        public bool side()
+        {
+            return true;
+        }
+
+        public void set()
+        {
+
         }
 
         //public void collisioncheck()
