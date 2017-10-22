@@ -19,7 +19,7 @@ namespace Game6
         int MouseElapsedTime = 0;
 
         Random r;
-        InputHelper input;
+        public InputHelper input;
 
         GameState gameState;
         //Collision collision;
