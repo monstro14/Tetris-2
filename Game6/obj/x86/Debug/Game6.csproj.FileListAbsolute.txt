@@ -82,3 +82,6 @@ D:\Documents\Visual Studio 2015\Projects\Tetris-2\Game6\obj\x86\Debug\Game6.cspr
 D:\Documents\Visual Studio 2015\Projects\Tetris-2\Game6\bin\Windows\x86\Debug\Content\CLEAR.xnb
 D:\Documents\Visual Studio 2015\Projects\Tetris-2\Game6\bin\Windows\x86\Debug\Content\SOUNDTRACK.wma
 D:\Documents\Visual Studio 2015\Projects\Tetris-2\Game6\bin\Windows\x86\Debug\Content\SOUNDTRACK.xnb
+D:\uni\Game6\Tetris-2\Game6\bin\Windows\x86\Debug\Content\CLEAR.xnb
+D:\uni\Game6\Tetris-2\Game6\bin\Windows\x86\Debug\Content\SOUNDTRACK.wma
+D:\uni\Game6\Tetris-2\Game6\bin\Windows\x86\Debug\Content\SOUNDTRACK.xnb
