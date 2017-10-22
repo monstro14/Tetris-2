@@ -11,17 +11,27 @@ namespace Game6
         enum GameState
         { Menu, Playing, GameOver}
 
+        public enum PlaceStates
+        {
+            PLACABLE,
+            NOTPLACABLE,
+            OFFSCREEN
+        }
+        //enum Collision
+        //{ set, fall, rotateR, rotateL, side}
+
         Vector2 Offset = new Vector2(0, 60), position = new Vector2(3, 0), previewpos = new Vector2(13, 1);
         public int Steptime = 500;
         int ElapsedTime = 0;
         int MouseElapsedTime = 0;
-        public int size, x, y;
+        public int  x, y;
 
         Random r;
+        public InputHelper input;
 
-        InputHelper input;
-
+       
         GameState gameState;
+        //Collision collision;
 
         TetrisGrid tgrid;
         
@@ -43,13 +53,8 @@ namespace Game6
 
             tgrid = new TetrisGrid();
             input = new InputHelper();
-<<<<<<< HEAD
             
             tgrid.reset();
-=======
-
-            grid.reset();
->>>>>>> 3e7c122bd3c74014a5e6d361143e243e7162b2ca
 
             blok1 = new block1();
             blok2 = new block2();
@@ -58,35 +63,59 @@ namespace Game6
             blok5 = new block5();
             blok6 = new block6();
             blok7 = new block7();
+            
+        }
+
+        public bool fall()
+        {
+            return true;
+        }
+
+        public bool rotateR()
+        {
+            return true;
+        }
+
+        public bool rotateL()
+        {
+            return true;
+        }
+
+        public bool side()
+        {
+            return true;
+        }
+
+        public void set()
+        {
+
         }
 
         public void HandleInput(GameTime gameTime, InputHelper inputHelper)
         {
- 
-            //input.Update(gameTime);
-            if (inputHelper.KeyPressed(Keys.A) && rotateL())
+            input.Update(gameTime);
+            PlaceStates ps = CanPlace();
+            if (inputHelper.currentKeyboardState.IsKeyDown(Keys.A) && inputHelper.previousKeyboardState.IsKeyUp(Keys.A) && rotateL() && ps != PlaceStates.OFFSCREEN)
             { /* roteer linksom */
 
             }
                
-            if (inputHelper.KeyPressed(Keys.D) && rotateR())
-            {/* roteer rechtsom */
+            if (inputHelper.currentKeyboardState.IsKeyDown(Keys.D) && inputHelper.previousKeyboardState.IsKeyUp(Keys.D) && rotateR() && ps != PlaceStates.OFFSCREEN)
+            {/* roteer rechtsom */ }
 
-            }
-
-            if (inputHelper.KeyPressed(Keys.Left) && side())
+            if (inputHelper.currentKeyboardState.IsKeyDown(Keys.Left) && inputHelper.previousKeyboardState.IsKeyUp(Keys.Left) && side() && ps != PlaceStates.OFFSCREEN)
             {
                 position.X--;
             }
 
-            if (inputHelper.KeyPressed(Keys.Right) && side())
+            if (inputHelper.currentKeyboardState.IsKeyDown(Keys.Right) && inputHelper.previousKeyboardState.IsKeyUp(Keys.Right) && side() && ps != PlaceStates.OFFSCREEN)
             {
                 position.X++;
             }
 
-            if (inputHelper.KeyPressed(Keys.Down) && fall())
+            if (inputHelper.currentKeyboardState.IsKeyDown(Keys.Down) && inputHelper.previousKeyboardState.IsKeyUp(Keys.Down) && fall())
             {
-                position.Y--;
+                position.Y++;
             }
         }
 
@@ -102,7 +131,6 @@ namespace Game6
                     currentblock = nextblock;
                     next();
                 }
-
                 fall();
                 rotateL();
                 rotateR();
@@ -124,7 +152,7 @@ namespace Game6
                         Place();
                         next();
                        
-                        ps = CanPlace();
+                        
                         if (ps == PlaceStates.NOTPLACABLE)
                         {                            
                             gameState = GameState.GameOver;
@@ -157,20 +185,12 @@ namespace Game6
             next();
             currentblock = nextblock;
             next();
-        }
-
-<<<<<<< HEAD
-        
-        public enum PlaceStates
-        {
-            PLACABLE,
-            NOTPLACABLE,
-            OFFSCREEN
-        }
+        }             
 
         public PlaceStates CanPlace()
         {
             int size = currentblock.blok.GetLength(0);
+            
             if (position.Y + size <= tgrid.gridHeight && position.X + size <= tgrid.gridWidth && tgrid.grid[x, y] == 0)
                 return PlaceStates.PLACABLE;
             else if (position.Y + size <= tgrid.gridHeight && position.X + size > tgrid.gridWidth && tgrid.grid[x, y] == 0)
@@ -195,45 +215,6 @@ namespace Game6
             tgrid.checkrows();
             
         }
-=======
-        public bool fall()
-        {
-            return true;
-        }
-
-        public bool rotateR()
-        {
-            return true;
-        }
-
-        public bool rotateL()
-        {
-            return true;
-        }
-
-        public bool side()
-        {
-            return true;
-        }
-
-        public void set()
-        {
-
-        }
-
-        //public void collisioncheck()
-        //{
-        //    int length = currentblock.blok.GetLength(0);
-        //    for(int i = 0; i < length; i++)
-        //        for (int t = 0; t < length; t++)
-        //        {
-        //            if (currentblock.blok[t, i] > 0 && position.X + t > 12)
-        //                position.X = 10 - t;
-        //            if (currentblock.blok[t, i] > 0 && position.X + t < 0)
-        //                position.X = 0 + t;
-        //        }
-        //}
->>>>>>> 3e7c122bd3c74014a5e6d361143e243e7162b2ca
 
         public void next()
         {
