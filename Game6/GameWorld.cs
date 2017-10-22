@@ -43,7 +43,7 @@ namespace Game6
             gameState = GameState.Playing;
 
             grid = new TetrisGrid();
-            //input = new InputHelper();
+            input = new InputHelper();
             grid.reset();
 
             blok1 = new block1();
@@ -58,7 +58,7 @@ namespace Game6
 
         public void HandleInput(GameTime gameTime, InputHelper inputHelper)
         {
-            //input.Update(gameTime);
+            input.Update(gameTime);
             if (inputHelper.currentKeyboardState.IsKeyDown(Keys.A) && inputHelper.previousKeyboardState.IsKeyUp(Keys.A))
             { /* roteer linksom */
 

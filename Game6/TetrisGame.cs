@@ -87,8 +87,7 @@ namespace Game6
 
             // TODO: Add your update logic here
             gameWorld.Update(gameTime);
-            input.Update(gameTime);
-            //gameWorld.HandleInput(inputHelper);        
+            input.Update(gameTime);                
             base.Update(gameTime);
         }
 
