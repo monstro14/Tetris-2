@@ -72,7 +72,7 @@ namespace Game6
         public void HandleInput(GameTime gameTime, InputHelper inputHelper)
         {
             input.Update(gameTime);
-            gameWorld.HandleInput(inputHelper);
+            gameWorld.HandleInput(gameTime, inputHelper);
         }
        
         /// <summary>
