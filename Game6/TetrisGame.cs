@@ -69,6 +69,12 @@ namespace Game6
             // TODO: Unload any non ContentManager content here
         }
 
+        public void HandleInput(GameTime gameTime, InputHelper inputHelper)
+        {
+            input.Update(gameTime);
+            gameWorld.HandleInput(inputHelper);
+        }
+       
         /// <summary>
         /// Allows the game to run logic such as updating the world,
         /// checking for collisions, gathering input, and playing audio.
@@ -82,6 +88,7 @@ namespace Game6
             // TODO: Add your update logic here
             gameWorld.Update(gameTime);
             input.Update(gameTime);
+            //gameWorld.HandleInput(inputHelper);        
             base.Update(gameTime);
         }
 

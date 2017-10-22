@@ -19,6 +19,7 @@ namespace Game6
         int MouseElapsedTime = 0;
 
         Random r;
+        InputHelper input;
 
         GameState gameState;
         //Collision collision;
@@ -42,6 +43,7 @@ namespace Game6
             gameState = GameState.Playing;
 
             grid = new TetrisGrid();
+            //input = new InputHelper();
             grid.reset();
 
             blok1 = new block1();
@@ -54,8 +56,9 @@ namespace Game6
             
         }
 
-        public void HandleIpunt(GameTime gameTime, InputHelper inputHelper)
+        public void HandleInput(GameTime gameTime, InputHelper inputHelper)
         {
+            //input.Update(gameTime);
             if (inputHelper.currentKeyboardState.IsKeyDown(Keys.A) && inputHelper.previousKeyboardState.IsKeyUp(Keys.A))
             { /* roteer linksom */
 
