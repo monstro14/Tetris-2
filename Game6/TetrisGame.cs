@@ -17,6 +17,7 @@ namespace Game6
         GameWorld gameWorld;
         InputHelper input;
         Texture2D blokje, blokje2;
+        public SoundEffect clearRow;
 
         public TetrisGame()
         {
@@ -55,7 +56,7 @@ namespace Game6
             blokje2 = Content.Load<Texture2D>("achtergrondblokje");
 
             MediaPlayer.Play(Content.Load<Song>("SOUNDTRACK"));
-            SoundEffect clearRow = Content.Load<SoundEffect>("CLEAR");
+            clearRow = Content.Load<SoundEffect>("CLEAR");
 
             // TODO: use this.Content to load your game content here
         }

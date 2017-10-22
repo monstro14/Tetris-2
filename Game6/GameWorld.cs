@@ -17,6 +17,7 @@ namespace Game6
         public int Steptime = 500;
         int ElapsedTime = 0;
         int MouseElapsedTime = 0;
+        public int size, x, y;
 
         Random r;
         public InputHelper input;
@@ -24,8 +25,8 @@ namespace Game6
         GameState gameState;
         //Collision collision;
 
-        TetrisGrid grid;
-
+        TetrisGrid tgrid;
+        
         blockbase nextblock, currentblock;
 
         block1 blok1;
@@ -42,9 +43,10 @@ namespace Game6
 
             gameState = GameState.Playing;
 
-            grid = new TetrisGrid();
+            tgrid = new TetrisGrid();
             input = new InputHelper();
-            grid.reset();
+            
+            tgrid.reset();
 
             blok1 = new block1();
             blok2 = new block2();
@@ -96,12 +98,27 @@ namespace Game6
                 {
                     position.Y++;
                     ElapsedTime = 0;
-                }
-            }
 
-            if (gameState == GameState.GameOver)
-            {
-                reset();
+                    Vector2 newblockposition = position + new Vector2(0, 1);
+
+                    PlaceStates ps = CanPlace();
+                    if (ps != PlaceStates.PLACABLE)
+                    {                        
+                        Place();
+                        next();
+                       
+                        ps = CanPlace();
+                        if (ps == PlaceStates.NOTPLACABLE)
+                        {                            
+                            gameState = GameState.GameOver;
+                        }
+                    }
+                }
+
+                if (gameState == GameState.GameOver)
+                {
+                    reset();
+                }
             }
         }
 
@@ -110,7 +127,7 @@ namespace Game6
             if (gameState == GameState.Playing)
             {
                 spriteBatch.Begin();
-                grid.Draw(gameTime, a, b, spriteBatch, Offset);
+                tgrid.Draw(gameTime, a, b, spriteBatch, Offset);
                 currentblock.Draw(gameTime, a, spriteBatch, Offset, position);
                 nextblock.Draw(gameTime, a, spriteBatch, Offset, previewpos);
                 spriteBatch.End();
@@ -119,24 +136,47 @@ namespace Game6
 
         public void reset()
         {
-            grid.reset();
+            tgrid.reset();
             next();
             currentblock = nextblock;
             next();
         }
 
-        //public void collisioncheck()
-        //{
-        //    int length = currentblock.blok.GetLength(0);
-        //    for(int i = 0; i < length; i++)
-        //        for (int t = 0; t < length; t++)
-        //        {
-        //            if (currentblock.blok[t, i] > 0 && position.X + t > 12)
-        //                position.X = 10 - t;
-        //            if (currentblock.blok[t, i] > 0 && position.X + t < 0)
-        //                position.X = 0 + t;
-        //        }
-        //}
+        
+        public enum PlaceStates
+        {
+            PLACABLE,
+            NOTPLACABLE,
+            OFFSCREEN
+        }
+
+        public PlaceStates CanPlace()
+        {
+            int size = currentblock.blok.GetLength(0);
+            if (position.Y + size <= tgrid.gridHeight && position.X + size <= tgrid.gridWidth && tgrid.grid[x, y] == 0)
+                return PlaceStates.PLACABLE;
+            else if (position.Y + size <= tgrid.gridHeight && position.X + size > tgrid.gridWidth && tgrid.grid[x, y] == 0)
+                return PlaceStates.OFFSCREEN;
+            else
+                return PlaceStates.NOTPLACABLE;
+        }
+
+        public void Place()
+        {
+            int size = currentblock.blok.GetLength(0);
+            for (int i = 0; i < size; i++)
+                for (int j = 0; j < size; j++)
+                {
+                    int coordx = x + i;
+                    int coordy = y + j;
+                    if (currentblock.blok[i, j] != 0)
+                    {
+                        tgrid.grid[coordx, coordy] = currentblock.blok[i, j];
+                    }
+                }
+            tgrid.checkrows();
+            
+        }
 
         public void next()
         {

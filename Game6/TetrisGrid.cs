@@ -8,10 +8,11 @@ namespace Game6
     {
         public int[,] grid;
         int score = 0;
+        public int gridWidth = 12, gridHeight = 20;
 
         public TetrisGrid()
         {
-            grid = new int[12, 20];
+            grid = new int[gridWidth, gridHeight];
         }
 
         public void reset()
@@ -52,7 +53,7 @@ namespace Game6
 
         public void Draw(GameTime gameTime, Texture2D blokje, Texture2D blokje2, SpriteBatch b, Vector2 offset)
         {
-            for (int i = 19; i >= 0; i--)
+            for (int i = gridHeight - 1; i >= 0; i--)
             {
                 for (int t = 0; t <= 11; t++)
                 {

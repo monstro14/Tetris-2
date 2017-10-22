@@ -47,7 +47,9 @@
     <Compile Include="block7.cs" />
     <Compile Include="blockbase.cs" />
     <Compile Include="TetrisGrid.cs" />
-    <Compile Include="GameWorld.cs" />
+    <Compile Include="..\..\GameWorld.cs">
+      <Link>GameWorld.cs</Link>
+    </Compile>
     <Compile Include="InputHelper.cs" />
     <Compile Include="TetrisGame.cs" />
     <Compile Include="Program.cs" />
